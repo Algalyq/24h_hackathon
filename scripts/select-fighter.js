@@ -11,6 +11,8 @@ let previousPlayer2CharacterIndex = null;
 let player1CharacterIndex = null;
 let player2CharacterIndex = null;
 let isButtonPressed = false;
+let lastAudio = document.getElementById('xanaudio');
+
 function selectCharacter(characterIndex) {
   if (playerTurn === 1) {
     characters.forEach(character => character.classList.remove('selected-player1'));
@@ -30,17 +32,27 @@ function selectCharacter(characterIndex) {
     switch (characterIndex) {
         case 0:
           document.getElementById('left-image').src= 'images/char-select/bigDalida.png';
+          lastAudio.pause();
           break;
         case 1:
           document.getElementById('left-image').src= 'images/char-select/bigKairow.png';
-         
+          lastAudio.pause();
+          lastAudio = document.getElementById('kairowaudio')
+          lastAudio.play()
           break;
         case 2:
           document.getElementById('left-image').src= 'images/char-select/bigSani2.png';
+          lastAudio.pause();
+          lastAudio = document.getElementById('sani')
+          lastAudio.play()
+
           break;
         case 3:
           document.getElementById('left-image').src= 'images/char-select/bigXan.png';
-          
+          lastAudio.pause();
+          lastAudio = document.getElementById('xanaudio')
+          lastAudio.play()
+          console.log(lastAudio)
           break;
         default:
           // Handle other cases or provide a fallback image
@@ -76,19 +88,29 @@ function selectCharacter(characterIndex) {
           case 0:
             document.getElementById('right-image').src= 'images/char-select/bigDalida.png';
             document.getElementById('right-image').style.transform = "scaleX(-1)";
+            lastAudio.pause();
+
             break;
           case 1:
             document.getElementById('right-image').src= 'images/char-select/bigKairow.png';
             document.getElementById('right-image').style.transform = "scaleX(-1)";
+            lastAudio.pause();
+            lastAudio = document.getElementById('kairowaudio')
+            lastAudio.play()
             break;
           case 2:
             document.getElementById('right-image').src= 'images/char-select/bigSani2.png';
             document.getElementById('right-image').style.transform = "scaleX(-1)";
-            
+            lastAudio.pause();
+            lastAudio = document.getElementById('sani')
+            lastAudio.play()
             break;
           case 3:
             document.getElementById('right-image').src= 'images/char-select/bigXan.png';
             document.getElementById('right-image').style.transform = "scaleX(-1)";
+            lastAudio.pause();
+            lastAudio = document.getElementById('xanaudio')
+            lastAudio.play()
             break;
           default:
             // Handle other cases or provide a fallback image

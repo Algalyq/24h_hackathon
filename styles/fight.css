@@ -5,12 +5,13 @@
 html,body {
     display: flex;    justify-content: center; /* Centers along the x-axis */
     align-items: center; /* Centers along the y-axis */    height: 100vh; /* Sets the body height to full viewport height */
-    background-color:red;}
+    background-color:beige;}
 button {
     border: none;    border-top: 2px solid white;
     border-bottom: 2px solid white;    background: none;
     color: white;    padding: 20px;
-    font-family: mk-font;    font-size: 20px;
+    font-family: mk-font;
+    font-size: 20px;
     margin: 0 10px;    cursor: pointer;
     transition: 400ms ease-in-out;}
 button:hover {    opacity: 0.7;
@@ -121,3 +122,17 @@ from {opacity: 1;}    to  {opacity: 0; visibility: hidden}
 }
 @keyframes fadeReverse {    from {opacity: 0;}
     to  {opacity: 0.8;}}
+
+.controls {
+    margin: 30px 15px 5px 15px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    width: 180px;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.controls h3{
+    font-family: mk-font;
+    font-weight: bold;
+}

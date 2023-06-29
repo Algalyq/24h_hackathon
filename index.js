@@ -11,6 +11,7 @@ canvas.height = 576
 c.fillRect(0, 0, canvas.width, canvas.height)
 
 const gravity = 0.7
+let musicPlay = false;
 
 const background = new Sprite({
   position: {
@@ -34,6 +35,29 @@ let characters = []
 
 let player1 = localStorage.getItem("player1")
 let player2= localStorage.getItem("player2")
+
+
+if(player1==0) {
+  document.getElementById('player1-name').textContent = 'Dalida queen';
+}else if(player1==1) {
+  document.getElementById('player1-name').textContent = 'Kairosh otmarozok';
+}else if(player1==2) {
+  document.getElementById('player1-name').textContent = 'Sani brat';
+}else if(player1==3) {
+  document.getElementById('player1-name').textContent =  'Xan ata';
+}
+
+if(player2==0) {
+  document.getElementById('player2-name').textContent = 'Dalida queen';
+}else if(player2==1) {
+  document.getElementById('player2-name').textContent = 'Kairosh otmarozok';
+}else if(player2==2) {
+  document.getElementById('player2-name').textContent = 'Sani brat';
+}else if(player2==3) {
+  document.getElementById('player2-name').textContent =  'Xan ata';
+}
+
+
 
 
 characters[0] = {
@@ -484,6 +508,7 @@ function openModal() {
 // Function to close the fighter selection modal
 function closeModal() {
   const modal = document.getElementById('fighterModal');
+
   // modal.style.display = 'none';
 }
 let selectedFighter = 'fighter1'; // Default fighter option
@@ -742,16 +767,20 @@ window.addEventListener('keydown', (event) => {
       case 'd':
         keys.d.pressed = true
         player.lastKey = 'd'
+        document.getElementById('backMusic').play();
         break
       case 'a':
         keys.a.pressed = true
         player.lastKey = 'a'
+        document.getElementById('backMusic').play();
         break
       case 'w':
         player.velocity.y = -20
+        document.getElementById('backMusic').play();
         break
       case ' ':
         player.attack()
+        document.getElementById('backMusic').play();
         break
     }
   }
@@ -761,17 +790,20 @@ window.addEventListener('keydown', (event) => {
       case 'ArrowRight':
         keys.ArrowRight.pressed = true
         enemy.lastKey = 'ArrowRight'
+        document.getElementById('backMusic').play();
         break
       case 'ArrowLeft':
         keys.ArrowLeft.pressed = true
         enemy.lastKey = 'ArrowLeft'
+        document.getElementById('backMusic').play();
         break
       case 'ArrowUp':
         enemy.velocity.y = -20
+        document.getElementById('backMusic').play();
         break
       case 'ArrowDown':
         enemy.attack()
-
+        document.getElementById('backMusic').play();
         break
     }
   }

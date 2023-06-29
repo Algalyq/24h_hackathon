@@ -1,4 +1,5 @@
 <head>
+  <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +15,13 @@
     </style>
   </head>
   <body>
+  <div class="controls">
+    <h2>Controls</h2>
+    <h3>Move Left: A </h3>
+    <h3>Move Right: D </h3>
+    <h3>Jump: W </h3>
+    <h3>Attack: Spacebar</h3>
+  </div>
     <div class="ring">
       <!-- red container div -->
       <div style="position: relative; display: inline-block">
@@ -39,7 +47,10 @@
               border-bottom: 4px solid white;
             "
           >
-            <div style="background-color: red; height: 30px; width: 100%"></div>
+
+            <div style="background-color: red; height: 30px; width: 100%">
+            </div>
+
             <div
               id="playerHealth"
               style="
@@ -50,7 +61,11 @@
                 bottom: 0;
                 width: 100%;
               "
-            ></div>
+            >
+
+            </div>
+            <h3 style="z-index: 100; position: absolute; top: -10px; left: 5px" id='player1-name'>Kairosh otmorozok</h3>
+
           </div>
     
           <!-- timer -->
@@ -92,7 +107,10 @@
                 left: 0;
               "
             ></div>
+            <h3 style="z-index: 100; position: absolute; top: -10px; right: 5px" id='player2-name'>Kairosh otmorozok</h3>
+
           </div>
+
           <div></div>
         </div>
         <div
@@ -112,21 +130,28 @@
           Tie
         </div>
         <canvas></canvas>
-        <div style="top: 11%; left: 45%; position: absolute; display: flex; justify-content: center; margin-top: 20px;">
+        <div style="top: 11%; left: 43%; position: absolute; display: flex; justify-content: center; margin-top: 20px;">
            <button id="restartButton" class='cButton'>R</button>
            <button id="pauseButton" class='mButton'>P</button>
-            <button id="chooseButton" class='cButton'>F</button>
         </div>
       </div>
     </div>
+  <div class="controls">
+    <h2>Controls</h2>
+    <h3>Move Left: ⬅️ </h3>
+    <h3>Move Right: ️➡️ </h3>
+    <h3>Jump: ⬆️ </h3>
+    <h3>Attack: ⬇️ </h3>
+  </div>
 
-
+  <audio src='audio/Хан.mp3' id='backMusic' style='display: none'></audio>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
       integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
     <script src="js/utils.js"></script>
     <script src="js/classes.js"></script>
     <script src="index.js"></script>
