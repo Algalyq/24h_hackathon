@@ -83,3 +83,20 @@ body {
   .selected {
     border-color: #818cf8;
   }
+
+.cButton {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: tomato;
+  text-align: center;
+}
+
+.mButton {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: darkgoldenrod;
+  text-align: center;
+
+}
