@@ -1,0 +1,11 @@
+body {
+    display: flex;
+    justify-content: center; /* Centers along the x-axis */
+    align-items: center; /* Centers along the y-axis */
+    height: 100vh; /* Sets the body height to full viewport height */
+    background-color:red;
+}
+
+.ring{ 
+
+}
