@@ -1,3 +1,7 @@
+
+
+
+
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
@@ -26,9 +30,11 @@ const shop = new Sprite({
   framesMax: 6
 })
 
-const player = new Fighter({
+
+
+player = new Fighter({
   position: {
-    x: 0,
+    x: 200,
     y: 0
   },
   velocity: {
@@ -86,9 +92,100 @@ const player = new Fighter({
   }
 })
 
+
+
+
+const kairow = new Fighter({
+  position: {
+    x: 250,
+    y: 0
+  },
+  velocity: {
+    x: 0,
+    y: 0
+  },
+  offset: {
+    x: 0,
+    y: 0
+  },
+  imageSrc: './img/kairow/Idle.png',
+  framesMax: 8,
+  scale: 2.5,
+  offset: {
+    x: 215,
+    y: 100
+  },
+  sprites: {
+    idle: {
+      imageSrc: './img/kairow/Idle.png',
+      framesMax: 10
+    },
+    run: {
+      imageSrc: './img/kairow/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/kairow/Jump.png',
+      framesMax: 3
+    },
+    fall: {
+      imageSrc: './img/kairow/Fall.png',
+      framesMax: 3
+    },
+    attack1: {
+      imageSrc: './img/kairow/Attack1.png',
+      framesMax: 7
+    },
+    takeHit: {
+      imageSrc: './img/kairow/Take hit.png',
+      framesMax: 3
+    },
+    death: {
+      imageSrc: './img/kairow/Death.png',
+      framesMax: 7
+    }
+  },
+  attackBox: {
+    offset: {
+      x: -100,
+      y: 50
+    },
+    width: 160,
+    height: 50
+  }
+})
+
+
+function openModal() {
+  const modal = document.getElementById('fighterModal');
+  modal.style.display = 'block';
+}
+
+// Function to close the fighter selection modal
+function closeModal() {
+  const modal = document.getElementById('fighterModal');
+  modal.style.display = 'none';
+}
+let selectedFighter = 'fighter1'; // Default fighter option
+
+// Function to change the selected fighter
+function selectFighter(fighter) {
+  selectedFighter = fighter;
+  updatePlayerAnimations();
+ 
+  closeModal()  
+}
+
+function updatePlayerAnimations() {
+  player = kairow
+  
+}
+
+
+
 const enemy = new Fighter({
   position: {
-    x: 400,
+    x: 700,
     y: 100
   },
   velocity: {
@@ -164,110 +261,174 @@ const keys = {
   }
 }
 
+// Function to open the fighter selection modal
+
+
+// Function to handle fighter selection
+// function selectFighter(fighter) {
+//   // Perform actions based on the selected fighter
+//   console.log('Selected fighter:', fighter);
+
+//   // Close the modal after selecting a fighter
+//   closeModal();
+// }
+
+// Add event listener to open the modal on button click
+const modalButton = document.getElementById('chooseFighterButton');
+// modalButton.addEventListener('click', openModal);
+openModal()
 decreaseTimer()
 
+let isPaused = false;
+
+
+
 function animate() {
-  window.requestAnimationFrame(animate)
-  c.fillStyle = 'black'
-  c.fillRect(0, 0, canvas.width, canvas.height)
-  background.update()
-  shop.update()
-  c.fillStyle = 'rgba(255, 255, 255, 0.15)'
-  c.fillRect(0, 0, canvas.width, canvas.height)
-  player.update()
-  enemy.update()
+  if (!isPaused) {
+    window.requestAnimationFrame(animate)
+    c.fillStyle = 'black'
+    c.fillRect(0, 0, canvas.width, canvas.height)
+    background.update()
+    shop.update()
+    c.fillStyle = 'rgba(255, 255, 255, 0.15)'
+    c.fillRect(0, 0, canvas.width, canvas.height)
+    player.update()
+    enemy.update()
 
-  player.velocity.x = 0
-  enemy.velocity.x = 0
+    player.velocity.x = 0
+    enemy.velocity.x = 0
 
-  // player movement
+    // player movement
 
-  if (keys.a.pressed && player.lastKey === 'a') {
-    player.velocity.x = -5
-    player.switchSprite('run')
-  } else if (keys.d.pressed && player.lastKey === 'd') {
-    player.velocity.x = 5
-    player.switchSprite('run')
-  } else {
-    player.switchSprite('idle')
-  }
+    if (keys.a.pressed && player.lastKey === 'a') {
+      player.velocity.x = -5
+      player.switchSprite('run')
+    } else if (keys.d.pressed && player.lastKey === 'd') {
+      player.velocity.x = 5
+      player.switchSprite('run')
+    } else {
+      player.switchSprite('idle')
+    }
 
-  // jumping
-  if (player.velocity.y < 0) {
-    player.switchSprite('jump')
-  } else if (player.velocity.y > 0) {
-    player.switchSprite('fall')
-  }
+    // jumping
+    if (player.velocity.y < 0) {
+      player.switchSprite('jump')
+    } else if (player.velocity.y > 0) {
+      player.switchSprite('fall')
+    }
 
-  // Enemy movement
-  if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
-    enemy.velocity.x = -5
-    enemy.switchSprite('run')
-  } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
-    enemy.velocity.x = 5
-    enemy.switchSprite('run')
-  } else {
-    enemy.switchSprite('idle')
-  }
+    // Enemy movement
+    if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
+      enemy.velocity.x = -5
+      enemy.switchSprite('run')
+    } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
+      enemy.velocity.x = 5
+      enemy.switchSprite('run')
+    } else {
+      enemy.switchSprite('idle')
+    }
 
-  // jumping
-  if (enemy.velocity.y < 0) {
-    enemy.switchSprite('jump')
-  } else if (enemy.velocity.y > 0) {
-    enemy.switchSprite('fall')
-  }
+    // jumping
+    if (enemy.velocity.y < 0) {
+      enemy.switchSprite('jump')
+    } else if (enemy.velocity.y > 0) {
+      enemy.switchSprite('fall')
+    }
 
-  // detect for collision & enemy gets hit
-  if (
-    rectangularCollision({
-      rectangle1: player,
-      rectangle2: enemy
-    }) &&
-    player.isAttacking &&
-    player.framesCurrent === 4
-  ) {
-    enemy.takeHit()
-    player.isAttacking = false
+    // detect for collision & enemy gets hit
+    if (
+      rectangularCollision({
+        rectangle1: player,
+        rectangle2: enemy
+      }) &&
+      player.isAttacking &&
+      player.framesCurrent === 4
+    ) {
+      enemy.takeHit()
+      player.isAttacking = false
 
-    gsap.to('#enemyHealth', {
-      width: enemy.health + '%'
-    })
-  }
+      gsap.to('#enemyHealth', {
+        width: enemy.health + '%'
+      })
+    }
 
-  // if player misses
-  if (player.isAttacking && player.framesCurrent === 4) {
-    player.isAttacking = false
-  }
+    // if player misses
+    if (player.isAttacking && player.framesCurrent === 4) {
+      player.isAttacking = false
+    }
 
-  // this is where our player gets hit
-  if (
-    rectangularCollision({
-      rectangle1: enemy,
-      rectangle2: player
-    }) &&
-    enemy.isAttacking &&
-    enemy.framesCurrent === 2
-  ) {
-    player.takeHit()
-    enemy.isAttacking = false
+    // this is where our player gets hit
+    if (
+      rectangularCollision({
+        rectangle1: enemy,
+        rectangle2: player
+      }) &&
+      enemy.isAttacking &&
+      enemy.framesCurrent === 2
+    ) {
+      player.takeHit()
+      enemy.isAttacking = false
 
-    gsap.to('#playerHealth', {
-      width: player.health + '%'
-    })
-  }
+      gsap.to('#playerHealth', {
+        width: player.health + '%'
+      })
+    }
 
-  // if player misses
-  if (enemy.isAttacking && enemy.framesCurrent === 2) {
-    enemy.isAttacking = false
-  }
+    // if player misses
+    if (enemy.isAttacking && enemy.framesCurrent === 2) {
+      enemy.isAttacking = false
+    }
 
-  // end game based on health
-  if (enemy.health <= 0 || player.health <= 0) {
-    determineWinner({ player, enemy, timerId })
+    // end game based on health
+    if (enemy.health <= 0 || player.health <= 0) {
+      determineWinner({ player, enemy, timerId })
+    }
   }
 }
 
 animate()
+
+function pauseGame() {
+  if (!isPaused) {
+    isPaused = true;
+    clearTimeout(timerId);
+  } else {
+    isPaused = false;
+    animate()
+    decreaseTimer();
+  }
+  console.log(isPaused)
+}
+
+function resetGame() {
+  // Reset game state variables
+  player.health = 100;
+  player.position.x = 200;
+  // player.position.y = 150; 
+  enemy.health = 100;
+  enemy.position.x = 700;
+  timer = 60;
+  
+  // Reset DOM elements
+  document.getElementById('playerHealth').style.width = '100%';
+  document.getElementById('enemyHealth').style.width = '100%';
+  document.getElementById('timer').innerHTML = timer;
+  document.getElementById('displayText').style.display = 'none';
+  
+  // Restart timer
+  clearTimeout(timerId);
+  decreaseTimer();
+}
+
+// Event listener for restart button click
+document.getElementById('restartButton').addEventListener('click', resetGame);
+
+
+// Add event listener to the pause button
+const pauseButton = document.querySelector('#pauseButton');
+pauseButton.addEventListener('click', pauseGame);
+
+
 
 window.addEventListener('keydown', (event) => {
   if (!player.dead) {
@@ -330,3 +491,7 @@ window.addEventListener('keyup', (event) => {
       break
   }
 })
+
+
+
+

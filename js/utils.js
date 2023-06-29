@@ -33,5 +33,10 @@ function decreaseTimer() {
 
   if (timer === 0) {
     determineWinner({ player, enemy, timerId })
+  } else if (keys.p) {
+    clearTimeout(timerId)
   }
 }
+
+
+
