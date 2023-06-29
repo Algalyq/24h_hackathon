@@ -30,9 +30,156 @@ const shop = new Sprite({
   framesMax: 6
 })
 
+let characters = []
+
+let player1 = localStorage.getItem("player1")
+let player2= localStorage.getItem("player2")
 
 
-player = new Fighter({
+characters[0] = {
+  offset: {
+    x: 215,
+    y: 130
+  },
+  idle: {
+    imageSrc: './img/dalida/Idle.png',
+    framesMax: 11
+  },
+  run: {
+    imageSrc: './img/dalida/Run.png',
+    framesMax: 8
+  },
+  jump: {
+    imageSrc: './img/dalida/Jump.png',
+    framesMax: 3
+  },
+  fall: {
+    imageSrc: './img/dalida/Fall.png',
+    framesMax: 3
+  },
+  attack1: {
+    imageSrc: './img/dalida/Attack1.png',
+    framesMax: 7
+  },
+  takeHit: {
+    imageSrc: './img/dalida/Take Hit',
+    framesMax: 4
+  },
+  death: {
+    imageSrc: './img/dalida/Death.png',
+    framesMax: 11
+  }
+}
+
+characters[1] = {
+  offset: {
+    x: 215,
+    y: 100
+  },
+  idle: {
+    imageSrc: './img/kairow/Idle.png',
+    framesMax: 10
+  },
+  run: {
+    imageSrc: './img/kairow/Run.png',
+    framesMax: 8
+  },
+  jump: {
+    imageSrc: './img/kairow/Jump.png',
+    framesMax: 3
+  },
+  fall: {
+    imageSrc: './img/kairow/Fall.png',
+    framesMax: 3
+  },
+  attack1: {
+    imageSrc: './img/kairow/Attack1.png',
+    framesMax: 7
+  },
+  takeHit: {
+    imageSrc: './img/kairow/Take Hit',
+    framesMax: 3
+  },
+  death: {
+    imageSrc: './img/kairow/Death.png',
+    framesMax: 7
+  }
+}
+
+characters[2] = {
+  offset: {
+    x: 215,
+    y: 165
+  },
+  idle: {
+    imageSrc: './img/kenji/Idle.png',
+    framesMax: 4
+  },
+  run: {
+    imageSrc: './img/kenji/Run.png',
+    framesMax: 8
+  },
+  jump: {
+    imageSrc: './img/kenji/Jump.png',
+    framesMax: 2
+  },
+  fall: {
+    imageSrc: './img/kenji/Fall.png',
+    framesMax: 2
+  },
+  attack1: {
+    imageSrc: './img/kenji/Attack1.png',
+    framesMax: 4
+  },
+  takeHit: {
+    imageSrc: './img/kenji/Take hit.png',
+    framesMax: 3
+  },
+  death: {
+    imageSrc: './img/kenji/Death.png',
+    framesMax: 7
+  }
+}
+
+characters[3] = {
+  offset: {
+    x: 215,
+    y: 153
+  },
+  idle: {
+    imageSrc: './img/samuraiMack/Idle.png',
+    framesMax: 8
+  },
+  run: {
+    imageSrc: './img/samuraiMack/Run.png',
+    framesMax: 8
+  },
+  jump: {
+    imageSrc: './img/samuraiMack/Jump.png',
+    framesMax: 2
+  },
+  fall: {
+    imageSrc: './img/samuraiMack/Fall.png',
+    framesMax: 2
+  },
+  attack1: {
+    imageSrc: './img/samuraiMack/Attack1.png',
+    framesMax: 6
+  },
+  takeHit: {
+    imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
+    framesMax: 4
+  },
+  death: {
+    imageSrc: './img/samuraiMack/Death.png',
+    framesMax: 6
+  }
+}
+
+console.log(characters[player1])
+console.log(characters[player2])
+
+let player = new Fighter({
   position: {
     x: 200,
     y: 0
@@ -45,41 +192,41 @@ player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './img/samuraiMack/Idle.png',
-  framesMax: 8,
+  imageSrc: characters[player1]['idle'].imageSrc,
+  framesMax: characters[player1]['idle'].framesMax,
   scale: 2.5,
   offset: {
-    x: 215,
-    y: 157
+    x: characters[player1]['offset']['x'],
+    y: characters[player1]['offset']['y']
   },
   sprites: {
     idle: {
-      imageSrc: './img/samuraiMack/Idle.png',
-      framesMax: 8
+      imageSrc: characters[player1]['idle'].imageSrc,
+      framesMax: characters[player1]['idle'].framesMax
     },
     run: {
-      imageSrc: './img/samuraiMack/Run.png',
-      framesMax: 8
+      imageSrc: characters[player1]['run'].imageSrc,
+      framesMax: characters[player1]['run'].framesMax
     },
     jump: {
-      imageSrc: './img/samuraiMack/Jump.png',
-      framesMax: 2
+      imageSrc: characters[player1]['jump'].imageSrc,
+      framesMax: characters[player1]['jump'].framesMax
     },
     fall: {
-      imageSrc: './img/samuraiMack/Fall.png',
-      framesMax: 2
+      imageSrc: characters[player1]['fall'].imageSrc,
+      framesMax: characters[player1]['fall'].framesMax
     },
     attack1: {
-      imageSrc: './img/samuraiMack/Attack1.png',
-      framesMax: 6
+      imageSrc: characters[player1]['attack1'].imageSrc,
+      framesMax: characters[player1]['attack1'].framesMax
     },
     takeHit: {
-      imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
-      framesMax: 4
+      imageSrc: characters[player1]['takeHit'].imageSrc,
+      framesMax: characters[player1]['takeHit'].framesMax
     },
     death: {
-      imageSrc: './img/samuraiMack/Death.png',
-      framesMax: 6
+      imageSrc: characters[player1]['death'].imageSrc,
+      framesMax: characters[player1]['death'].framesMax
     }
   },
   attackBox: {
@@ -91,70 +238,6 @@ player = new Fighter({
     height: 50
   }
 })
-
-
-
-
-const kairow = new Fighter({
-  position: {
-    x: 250,
-    y: 0
-  },
-  velocity: {
-    x: 0,
-    y: 0
-  },
-  offset: {
-    x: 0,
-    y: 0
-  },
-  imageSrc: './img/kairow/Idle.png',
-  framesMax: 8,
-  scale: 2.5,
-  offset: {
-    x: 215,
-    y: 100
-  },
-  sprites: {
-    idle: {
-      imageSrc: './img/kairow/Idle.png',
-      framesMax: 10
-    },
-    run: {
-      imageSrc: './img/kairow/Run.png',
-      framesMax: 8
-    },
-    jump: {
-      imageSrc: './img/kairow/Jump.png',
-      framesMax: 3
-    },
-    fall: {
-      imageSrc: './img/kairow/Fall.png',
-      framesMax: 3
-    },
-    attack1: {
-      imageSrc: './img/kairow/Attack1.png',
-      framesMax: 7
-    },
-    takeHit: {
-      imageSrc: './img/kairow/Take hit.png',
-      framesMax: 3
-    },
-    death: {
-      imageSrc: './img/kairow/Death.png',
-      framesMax: 7
-    }
-  },
-  attackBox: {
-    offset: {
-      x: -100,
-      y: 50
-    },
-    width: 160,
-    height: 50
-  }
-})
-
 
 function openModal() {
   const modal = document.getElementById('fighterModal');
@@ -169,17 +252,7 @@ function closeModal() {
 let selectedFighter = 'fighter1'; // Default fighter option
 
 // Function to change the selected fighter
-function selectFighter(fighter) {
-  selectedFighter = fighter;
-  updatePlayerAnimations();
- 
-  closeModal()  
-}
 
-function updatePlayerAnimations() {
-  player = kairow
-  
-}
 
 
 
@@ -197,41 +270,41 @@ const enemy = new Fighter({
     x: -50,
     y: 0
   },
-  imageSrc: './img/kenji/Idle.png',
-  framesMax: 4,
+  imageSrc: characters[player2]['idle'].imageSrc,
+  framesMax: characters[player2]['idle'].framesMax,
   scale: 2.5,
   offset: {
-    x: 215,
-    y: 167
+    x: characters[player2]['offset']['x'],
+    y: characters[player2]['offset']['y']
   },
   sprites: {
     idle: {
-      imageSrc: './img/kenji/Idle.png',
-      framesMax: 4
+      imageSrc: characters[player2]['idle'].imageSrc,
+      framesMax: characters[player2]['idle'].framesMax
     },
     run: {
-      imageSrc: './img/kenji/Run.png',
-      framesMax: 8
+      imageSrc: characters[player2]['run'].imageSrc,
+      framesMax: characters[player2]['run'].framesMax
     },
     jump: {
-      imageSrc: './img/kenji/Jump.png',
-      framesMax: 2
+      imageSrc: characters[player2]['jump'].imageSrc,
+      framesMax: characters[player2]['jump'].framesMax
     },
     fall: {
-      imageSrc: './img/kenji/Fall.png',
-      framesMax: 2
+      imageSrc: characters[player2]['fall'].imageSrc,
+      framesMax: characters[player2]['fall'].framesMax
     },
     attack1: {
-      imageSrc: './img/kenji/Attack1.png',
-      framesMax: 4
+      imageSrc: characters[player2]['attack1'].imageSrc,
+      framesMax: characters[player2]['attack1'].framesMax
     },
     takeHit: {
-      imageSrc: './img/kenji/Take hit.png',
-      framesMax: 3
+      imageSrc: characters[player2]['takeHit'].imageSrc,
+      framesMax: characters[player2]['takeHit'].framesMax
     },
     death: {
-      imageSrc: './img/kenji/Death.png',
-      framesMax: 7
+      imageSrc: characters[player2]['death'].imageSrc,
+      framesMax: characters[player2]['death'].framesMax
     }
   },
   attackBox: {
@@ -342,7 +415,7 @@ function animate() {
         rectangle2: enemy
       }) &&
       player.isAttacking &&
-      player.framesCurrent === 4
+      player.framesCurrent === 3
     ) {
       enemy.takeHit()
       player.isAttacking = false
@@ -353,7 +426,7 @@ function animate() {
     }
 
     // if player misses
-    if (player.isAttacking && player.framesCurrent === 4) {
+    if (player.isAttacking && player.framesCurrent === 3) {
       player.isAttacking = false
     }
 
