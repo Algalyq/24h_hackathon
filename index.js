@@ -158,13 +158,13 @@ const kairow = new Fighter({
 
 function openModal() {
   const modal = document.getElementById('fighterModal');
-  modal.style.display = 'block';
+  // modal.style.display = 'block';
 }
 
 // Function to close the fighter selection modal
 function closeModal() {
   const modal = document.getElementById('fighterModal');
-  modal.style.display = 'none';
+  // modal.style.display = 'none';
 }
 let selectedFighter = 'fighter1'; // Default fighter option
 
