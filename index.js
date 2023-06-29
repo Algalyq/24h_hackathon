@@ -37,143 +37,384 @@ let player2= localStorage.getItem("player2")
 
 
 characters[0] = {
-  offset: {
-    x: 215,
-    y: 130
+  player: {
+    position: {
+      x: 100,
+      y: 128,
+    },
+    offset: {
+      x: 100,
+      y: 128
+    },
+    idle: {
+      imageSrc: './img/dalida/Idle.png',
+      framesMax: 11
+    },
+    run: {
+      imageSrc: './img/dalida/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/dalida/Jump.png',
+      framesMax: 3
+    },
+    fall: {
+      imageSrc: './img/dalida/Fall.png',
+      framesMax: 3
+    },
+    attack1: {
+      imageSrc: './img/dalida/Attack1.png',
+      framesMax: 7
+    },
+    takeHit: {
+      imageSrc: './img/dalida/Take Hit.png',
+      framesMax: 4
+    },
+    death: {
+      imageSrc: './img/dalida/Death.png',
+      framesMax: 11
+    },
+    attackBox: {
+      offset: {
+        x: -100,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
   },
-  idle: {
-    imageSrc: './img/dalida/Idle.png',
-    framesMax: 11
-  },
-  run: {
-    imageSrc: './img/dalida/Run.png',
-    framesMax: 8
-  },
-  jump: {
-    imageSrc: './img/dalida/Jump.png',
-    framesMax: 3
-  },
-  fall: {
-    imageSrc: './img/dalida/Fall.png',
-    framesMax: 3
-  },
-  attack1: {
-    imageSrc: './img/dalida/Attack1.png',
-    framesMax: 7
-  },
-  takeHit: {
-    imageSrc: './img/dalida/Take Hit',
-    framesMax: 4
-  },
-  death: {
-    imageSrc: './img/dalida/Death.png',
-    framesMax: 11
-  }
+  enemy: {
+    position: {
+      x: 500,
+      y: 128,
+    },
+    offset: {
+      x: 0,
+      y: 128
+    },
+    idle: {
+      imageSrc: './img/reverseDalida/Idle.png',
+      framesMax: 11
+    },
+    run: {
+      imageSrc: './img/reverseDalida/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/reverseDalida/Jump.png',
+      framesMax: 3
+    },
+    fall: {
+      imageSrc: './img/reverseDalida/Fall.png',
+      framesMax: 3
+    },
+    attack1: {
+      imageSrc: './img/reverseDalida/Attack1.png',
+      framesMax: 7
+    },
+    takeHit: {
+      imageSrc: './img/reverseDalida/Take Hit.png',
+      framesMax: 4
+    },
+    death: {
+      imageSrc: './img/reverseDalida/Death.png',
+      framesMax: 11
+    },
+    attackBox: {
+      offset: {
+        x: 0,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
+}
 }
 
 characters[1] = {
-  offset: {
-    x: 215,
-    y: 100
+  player: {
+    position: {
+      x: 100,
+      y: 98,
+    },
+    offset: {
+      x: 100,
+      y: 98
+    },
+    idle: {
+      imageSrc: './img/kairow/Idle.png',
+      framesMax: 10
+    },
+    run: {
+      imageSrc: './img/kairow/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/kairow/Jump.png',
+      framesMax: 3
+    },
+    fall: {
+      imageSrc: './img/kairow/Fall.png',
+      framesMax: 3
+    },
+    attack1: {
+      imageSrc: './img/kairow/Attack1.png',
+      framesMax: 7
+    },
+    takeHit: {
+      imageSrc: './img/kairow/Take hit.png',
+      framesMax: 3
+    },
+    death: {
+      imageSrc: './img/kairow/Death.png',
+      framesMax: 7
+    },
+    attackBox: {
+      offset: {
+        x: -100,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
   },
-  idle: {
-    imageSrc: './img/kairow/Idle.png',
-    framesMax: 10
-  },
-  run: {
-    imageSrc: './img/kairow/Run.png',
-    framesMax: 8
-  },
-  jump: {
-    imageSrc: './img/kairow/Jump.png',
-    framesMax: 3
-  },
-  fall: {
-    imageSrc: './img/kairow/Fall.png',
-    framesMax: 3
-  },
-  attack1: {
-    imageSrc: './img/kairow/Attack1.png',
-    framesMax: 7
-  },
-  takeHit: {
-    imageSrc: './img/kairow/Take Hit',
-    framesMax: 3
-  },
-  death: {
-    imageSrc: './img/kairow/Death.png',
-    framesMax: 7
-  }
+  enemy: {
+    position: {
+      x: 500,
+      y: 98,
+    },
+    offset: {
+      x: 0,
+      y: 98
+    },
+    idle: {
+      imageSrc: './img/reverseKairow/Idle.png',
+      framesMax: 10
+    },
+    run: {
+      imageSrc: './img/reverseKairow/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/reverseKairow/Jump.png',
+      framesMax: 3
+    },
+    fall: {
+      imageSrc: './img/reverseKairow/Fall.png',
+      framesMax: 3
+    },
+    attack1: {
+      imageSrc: './img/reverseKairow/Attack1.png',
+      framesMax: 7
+    },
+    takeHit: {
+      imageSrc: './img/reverseKairow/Take hit.png',
+      framesMax: 3
+    },
+    death: {
+      imageSrc: './img/kairow/Death.png',
+      framesMax: 7
+    },
+    attackBox: {
+      offset: {
+        x: 0,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
+}
 }
 
 characters[2] = {
-  offset: {
-    x: 215,
-    y: 165
+  player: {
+    position: {
+      x: 100,
+      y: 160,
+    },
+    offset: {
+      x: 100,
+      y: 160
+    },
+    idle: {
+      imageSrc: './img/sani/Idle.png',
+      framesMax: 4
+    },
+    run: {
+      imageSrc: './img/sani/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/sani/Jump.png',
+      framesMax: 2
+    },
+    fall: {
+      imageSrc: './img/sani/Fall.png',
+      framesMax: 2
+    },
+    attack1: {
+      imageSrc: './img/sani/Attack1.png',
+      framesMax: 4
+    },
+    takeHit: {
+      imageSrc: './img/sani/Take hit.png',
+      framesMax: 3
+    },
+    death: {
+      imageSrc: './img/kenji/Death.png',
+      framesMax: 7
+    },
+    attackBox: {
+      offset: {
+        x: -20,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
   },
-  idle: {
-    imageSrc: './img/kenji/Idle.png',
-    framesMax: 4
-  },
-  run: {
-    imageSrc: './img/kenji/Run.png',
-    framesMax: 8
-  },
-  jump: {
-    imageSrc: './img/kenji/Jump.png',
-    framesMax: 2
-  },
-  fall: {
-    imageSrc: './img/kenji/Fall.png',
-    framesMax: 2
-  },
-  attack1: {
-    imageSrc: './img/kenji/Attack1.png',
-    framesMax: 4
-  },
-  takeHit: {
-    imageSrc: './img/kenji/Take hit.png',
-    framesMax: 3
-  },
-  death: {
-    imageSrc: './img/kenji/Death.png',
-    framesMax: 7
-  }
+  enemy: {
+    position: {
+      x: 500,
+      y: 160,
+    },
+    offset: {
+      x: 0,
+      y: 160
+    },
+    idle: {
+      imageSrc: './img/kenji/Idle.png',
+      framesMax: 4
+    },
+    run: {
+      imageSrc: './img/kenji/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/kenji/Jump.png',
+      framesMax: 2
+    },
+    fall: {
+      imageSrc: './img/kenji/Fall.png',
+      framesMax: 2
+    },
+    attack1: {
+      imageSrc: './img/kenji/Attack1.png',
+      framesMax: 4
+    },
+    takeHit: {
+      imageSrc: './img/kenji/Take hit.png',
+      framesMax: 3
+    },
+    death: {
+      imageSrc: './img/kenji/Death.png',
+      framesMax: 7
+    },
+    attackBox: {
+      offset: {
+        x: -50,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
+}
 }
 
+
 characters[3] = {
-  offset: {
-    x: 215,
-    y: 153
+  player: {
+    position: {
+      x: 100,
+      y: 145,
+    },
+    offset: {
+      x: 100,
+      y: 145
+    },
+    idle: {
+      imageSrc: './img/Xan/Idle.png',
+      framesMax: 8
+    },
+    run: {
+      imageSrc: './img/Xan/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/Xan/Jump.png',
+      framesMax: 2
+    },
+    fall: {
+      imageSrc: './img/Xan/Fall.png',
+      framesMax: 2
+    },
+    attack1: {
+      imageSrc: './img/Xan/Attack1.png',
+      framesMax: 6
+    },
+    takeHit: {
+      imageSrc: './img/Xan/Takehit.png',
+      framesMax: 4
+    },
+    death: {
+      imageSrc: './img/Xan/Death.png',
+      framesMax: 6
+    },
+    attackBox: {
+      offset: {
+        x: -100,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
   },
-  idle: {
-    imageSrc: './img/samuraiMack/Idle.png',
-    framesMax: 8
-  },
-  run: {
-    imageSrc: './img/samuraiMack/Run.png',
-    framesMax: 8
-  },
-  jump: {
-    imageSrc: './img/samuraiMack/Jump.png',
-    framesMax: 2
-  },
-  fall: {
-    imageSrc: './img/samuraiMack/Fall.png',
-    framesMax: 2
-  },
-  attack1: {
-    imageSrc: './img/samuraiMack/Attack1.png',
-    framesMax: 6
-  },
-  takeHit: {
-    imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
-    framesMax: 4
-  },
-  death: {
-    imageSrc: './img/samuraiMack/Death.png',
-    framesMax: 6
-  }
+  enemy: {
+    position: {
+      x: 500,
+      y: 145,
+    },
+    offset: {
+      x: 0,
+      y: 145
+    },
+    idle: {
+      imageSrc: './img/reverseXan/Idle.png',
+      framesMax: 8
+    },
+    run: {
+      imageSrc: './img/reverseXan/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/reverseXan/Jump.png',
+      framesMax: 2
+    },
+    fall: {
+      imageSrc: './img/reverseXan/Fall.png',
+      framesMax: 2
+    },
+    attack1: {
+      imageSrc: './img/reverseXan/Attack1.png',
+      framesMax: 6
+    },
+    takeHit: {
+      imageSrc: './img/reverseXan/Take Hit.png',
+      framesMax: 4
+    },
+    death: {
+      imageSrc: './img/Xan/Death.png',
+      framesMax: 6
+    },
+    attackBox: {
+      offset: {
+        x: -50,
+        y: 0
+      },
+      width: 160,
+      height: 50
+    }
+}
 }
 
 console.log(characters[player1])
@@ -181,58 +422,54 @@ console.log(characters[player2])
 
 let player = new Fighter({
   position: {
-    x: 200,
-    y: 0
+    x: characters[player1]['player']['position'].x,
+    y: characters[player1]['player']['position'].y,
   },
   velocity: {
     x: 0,
     y: 0
   },
-  offset: {
-    x: 0,
-    y: 0
-  },
-  imageSrc: characters[player1]['idle'].imageSrc,
-  framesMax: characters[player1]['idle'].framesMax,
+  imageSrc: characters[player1]['player']['idle'].imageSrc,
+  framesMax: characters[player1]['player']['idle'].framesMax,
   scale: 2.5,
   offset: {
-    x: characters[player1]['offset']['x'],
-    y: characters[player1]['offset']['y']
+    x: characters[player1]['player']['offset'].x,
+    y: characters[player1]['player']['offset'].y,
   },
   sprites: {
     idle: {
-      imageSrc: characters[player1]['idle'].imageSrc,
-      framesMax: characters[player1]['idle'].framesMax
+      imageSrc: characters[player1]['player']['idle'].imageSrc,
+      framesMax: characters[player1]['player']['idle'].framesMax
     },
     run: {
-      imageSrc: characters[player1]['run'].imageSrc,
-      framesMax: characters[player1]['run'].framesMax
+      imageSrc: characters[player1]['player']['run'].imageSrc,
+      framesMax: characters[player1]['player']['run'].framesMax
     },
     jump: {
-      imageSrc: characters[player1]['jump'].imageSrc,
-      framesMax: characters[player1]['jump'].framesMax
+      imageSrc: characters[player1]['player']['jump'].imageSrc,
+      framesMax: characters[player1]['player']['jump'].framesMax
     },
     fall: {
-      imageSrc: characters[player1]['fall'].imageSrc,
-      framesMax: characters[player1]['fall'].framesMax
+      imageSrc: characters[player1]['player']['fall'].imageSrc,
+      framesMax: characters[player1]['player']['fall'].framesMax
     },
     attack1: {
-      imageSrc: characters[player1]['attack1'].imageSrc,
-      framesMax: characters[player1]['attack1'].framesMax
+      imageSrc: characters[player1]['player']['attack1'].imageSrc,
+      framesMax: characters[player1]['player']['attack1'].framesMax
     },
     takeHit: {
-      imageSrc: characters[player1]['takeHit'].imageSrc,
-      framesMax: characters[player1]['takeHit'].framesMax
+      imageSrc: characters[player1]['player']['takeHit'].imageSrc,
+      framesMax: characters[player1]['player']['takeHit'].framesMax
     },
     death: {
-      imageSrc: characters[player1]['death'].imageSrc,
-      framesMax: characters[player1]['death'].framesMax
+      imageSrc: characters[player1]['player']['death'].imageSrc,
+      framesMax: characters[player1]['player']['death'].framesMax
     }
   },
   attackBox: {
     offset: {
-      x: 100,
-      y: 50
+      x: characters[player1]['player']['attackBox']['offset'].x,
+      y: characters[player1]['player']['attackBox']['offset'].y
     },
     width: 160,
     height: 50
@@ -258,61 +495,57 @@ let selectedFighter = 'fighter1'; // Default fighter option
 
 const enemy = new Fighter({
   position: {
-    x: 700,
-    y: 100
+    x: characters[player2]['enemy']['position'].x,
+    y: characters[player2]['enemy']['position'].y,
   },
   velocity: {
     x: 0,
     y: 0
   },
   color: 'blue',
-  offset: {
-    x: -50,
-    y: 0
-  },
-  imageSrc: characters[player2]['idle'].imageSrc,
-  framesMax: characters[player2]['idle'].framesMax,
+  imageSrc: characters[player2]['enemy']['idle'].imageSrc,
+  framesMax: characters[player2]['enemy']['idle'].framesMax,
   scale: 2.5,
   offset: {
-    x: characters[player2]['offset']['x'],
-    y: characters[player2]['offset']['y']
+    x: characters[player2]['enemy']['offset'].x,
+    y: characters[player2]['enemy']['offset'].y,
   },
   sprites: {
     idle: {
-      imageSrc: characters[player2]['idle'].imageSrc,
-      framesMax: characters[player2]['idle'].framesMax
+      imageSrc: characters[player2]['enemy']['idle'].imageSrc,
+      framesMax: characters[player2]['enemy']['idle'].framesMax
     },
     run: {
-      imageSrc: characters[player2]['run'].imageSrc,
-      framesMax: characters[player2]['run'].framesMax
+      imageSrc: characters[player2]['enemy']['run'].imageSrc,
+      framesMax: characters[player2]['enemy']['run'].framesMax
     },
     jump: {
-      imageSrc: characters[player2]['jump'].imageSrc,
-      framesMax: characters[player2]['jump'].framesMax
+      imageSrc: characters[player2]['enemy']['jump'].imageSrc,
+      framesMax: characters[player2]['enemy']['jump'].framesMax
     },
     fall: {
-      imageSrc: characters[player2]['fall'].imageSrc,
-      framesMax: characters[player2]['fall'].framesMax
+      imageSrc: characters[player2]['enemy']['fall'].imageSrc,
+      framesMax: characters[player2]['enemy']['fall'].framesMax
     },
     attack1: {
-      imageSrc: characters[player2]['attack1'].imageSrc,
-      framesMax: characters[player2]['attack1'].framesMax
+      imageSrc: characters[player2]['enemy']['attack1'].imageSrc,
+      framesMax: characters[player2]['enemy']['attack1'].framesMax
     },
     takeHit: {
-      imageSrc: characters[player2]['takeHit'].imageSrc,
-      framesMax: characters[player2]['takeHit'].framesMax
+      imageSrc: characters[player2]['enemy']['takeHit'].imageSrc,
+      framesMax: characters[player2]['enemy']['takeHit'].framesMax
     },
     death: {
-      imageSrc: characters[player2]['death'].imageSrc,
-      framesMax: characters[player2]['death'].framesMax
+      imageSrc: characters[player2]['enemy']['death'].imageSrc,
+      framesMax: characters[player2]['enemy']['death'].framesMax
     }
   },
   attackBox: {
     offset: {
-      x: -170,
-      y: 50
+      x: characters[player2]['enemy']['attackBox']['offset'].x,
+      y: characters[player2]['enemy']['attackBox']['offset'].y
     },
-    width: 170,
+    width: 160,
     height: 50
   }
 })
