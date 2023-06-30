@@ -52,6 +52,8 @@ function selectCharacter(characterIndex) {
         case 0:
           document.getElementById('left-image').src= 'images/char-select/bigDalida.png';
           lastAudio.pause();
+          lastAudio = document.getElementById('dalidaAudio')
+          lastAudio.play()
           break;
         case 1:
           document.getElementById('left-image').src= 'images/char-select/bigKairow.png';
@@ -111,7 +113,8 @@ function selectCharacter(characterIndex) {
             document.getElementById('right-image').src= 'images/char-select/bigDalida.png';
             document.getElementById('right-image').style.transform = "scaleX(-1)";
             lastAudio.pause();
-
+            lastAudio = document.getElementById('dalidaAudio')
+            lastAudio.play()
             break;
           case 1:
             document.getElementById('right-image').src= 'images/char-select/bigKairow.png';

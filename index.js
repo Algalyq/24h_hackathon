@@ -38,7 +38,7 @@ let player2= localStorage.getItem("player2")
 
 
 if(player1==0) {
-  document.getElementById('player1-name').textContent = 'Dalida dobriya';
+  document.getElementById('player1-name').textContent = 'Dalida queen';
 }else if(player1==1) {
   document.getElementById('player1-name').textContent = 'Kairosh otmarozok';
 }else if(player1==2) {
@@ -48,7 +48,7 @@ if(player1==0) {
 }
 
 if(player2==0) {
-  document.getElementById('player2-name').textContent = 'Dalida dobriya';
+  document.getElementById('player2-name').textContent = 'Dalida queen';
 }else if(player2==1) {
   document.getElementById('player2-name').textContent = 'Kairosh otmarozok';
 }else if(player2==2) {
