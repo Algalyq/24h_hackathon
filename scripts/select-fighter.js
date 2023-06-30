@@ -4,7 +4,7 @@ const characters = document.querySelectorAll('.character');
 const Names = []
 
 Names[0] = {
-  name: "Dalida sila"
+  name: "Dalida dobrya"
 }
 Names[1] = {
   name: "Kairow otmorozok"
@@ -12,7 +12,7 @@ Names[1] = {
 
 
 Names[2] = {
-  name: "Sani sila"
+  name: "Sani brat"
 }
 Names[3] = {
   name: "Xan ata"
