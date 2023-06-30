@@ -722,20 +722,28 @@ animate()
 function reset(){
   player.health = 100;
   player.position.x = characters[player1]['player']['position'].x;
-  // player.position.y = 150; 
+  // player.position.y = 150;
   enemy.health = 100;
+
+  enemy.dead = false;
   enemy.position.x = characters[player2]['enemy']['position'].x;
   timer = 60;
-  
+
   // Reset DOM elements
   document.getElementById('playerHealth').style.width = '100%';
   document.getElementById('enemyHealth').style.width = '100%';
   document.getElementById('timer').innerHTML = timer;
   document.getElementById('displayText').style.display = 'none';
-  
+
+
+
+
   // Restart timer
   clearTimeout(timerId);
-  decreaseTimer();
+  if(!isPaused) {
+    decreaseTimer()
+  }
+
 }
 function pauseGame() {
   if (!isPaused) {
@@ -784,7 +792,7 @@ window.addEventListener('keydown', (event) => {
         player.velocity.y = -20
         document.getElementById('backMusic').play();
         break
-      case ' ':
+      case 'c':
         player.attack()
         document.getElementById('backMusic').play();
         break
