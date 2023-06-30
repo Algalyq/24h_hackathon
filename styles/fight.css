@@ -7,13 +7,19 @@ html,body {
     align-items: center; /* Centers along the y-axis */    height: 100vh; /* Sets the body height to full viewport height */
     background-color:beige;}
 button {
-    border: none;    border-top: 2px solid white;
-    border-bottom: 2px solid white;    background: none;
+    border: none;    
+    background: none;
     color: white;    padding: 20px;
     font-family: mk-font;
     font-size: 20px;
     margin: 0 10px;    cursor: pointer;
     transition: 400ms ease-in-out;}
+
+    img{
+        width: 30px;
+    }
+
+
 button:hover {    opacity: 0.7;
 }button:disabled {
      opacity: 0.4;    transition: 400ms ease-in-out;

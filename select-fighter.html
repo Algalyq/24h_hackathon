@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="styles/loader.css">
     <link rel="stylesheet" href="styles/select-fighter.css">
     <title>Select Fighter</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
@@ -15,13 +19,19 @@
 
     <div class="wrapper">
         <div class="header">
-            <a href="index.html"><h1 class="menu">@ Menu</h1></a>
-            <h1>CHARACTER SELECT</h1>
+            <a href="index.html"><h1 class="menu">Menu</h1></a>
+            <span id="title">CHARACTER SELECT PLAYER #1</span>
         </div>
         <div class="main">
             <div class="left-side" id="left">
-                <img src="" alt="" id = "left-image">
+                <div style="position: relative;">
+                    <img src="" alt="" id="left-image">
+                    <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); padding: 10px;">
+                        <span id="name" style="color: white; text-align: center; margin: 0;">Player Name, No. X</span>
+                    </div>
+                </div>
             </div>
+            
             <div class="characters">
                 <div class="character" tabindex="0"></div>
                 <div class="character" tabindex="0"></div>
@@ -30,8 +40,16 @@
                 <button class="select" id="selectButton">Select</button>  
             </div>
             
-            <div class="right-side" id="right">
+            <!-- <div class="right-side" id="right">
                 <img src="" alt="" id = "right-image">
+            </div> -->
+            <div class="right-side" id="right">
+                <div style="position: relative;">
+                    <img src="" alt="" id="right-image">
+                    <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); padding: 10px;">
+                        <span id="name2" style="color: white; text-align: center; margin: 0;">Player Name, No. X</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

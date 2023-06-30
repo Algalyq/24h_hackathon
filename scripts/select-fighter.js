@@ -1,10 +1,26 @@
 // Get all the character elements
 const characters = document.querySelectorAll('.character');
 
+const Names = []
+
+Names[0] = {
+  name: "Dalida sila"
+}
+Names[1] = {
+  name: "Kairow otmorozok"
+}
+
+
+Names[2] = {
+  name: "Sani sila"
+}
+Names[3] = {
+  name: "Xan ata"
+}
 // Get the select span
 const selectSpan = document.querySelector('select');
 const left =  document.getElementById("left");
-
+let Title = document.getElementById("title")
 let playerTurn = 1;
 let previousPlayer1CharacterIndex = null;
 let previousPlayer2CharacterIndex = null;
@@ -12,9 +28,11 @@ let player1CharacterIndex = null;
 let player2CharacterIndex = null;
 let isButtonPressed = false;
 let lastAudio = document.getElementById('xanaudio');
-
+let NamePl1 = document.getElementById("name")
+let NamePl2 = document.getElementById("name2")
 function selectCharacter(characterIndex) {
   if (playerTurn === 1) {
+
     characters.forEach(character => character.classList.remove('selected-player1'));
   
     characters[characterIndex].classList.add('selected-player1');
@@ -27,6 +45,7 @@ function selectCharacter(characterIndex) {
     if(previousPlayer1CharacterIndex !== null){
     characters[previousPlayer1CharacterIndex].style.borderColor = 'rgba(24,24,24,1)';
     }
+    NamePl1.textContent = Names[player1CharacterIndex].name
     
     // Change background image based on character index
     switch (characterIndex) {
@@ -63,6 +82,8 @@ function selectCharacter(characterIndex) {
     document.getElementById('selectButton').onclick = function() {
       playerTurn = 2;
       console.log("Select button is pressed.");
+      
+    Title.textContent = "CHARACTER SELECT PLAYER #2"
   
    };
   }
@@ -83,7 +104,8 @@ function selectCharacter(characterIndex) {
       characters[player1CharacterIndex].style.borderColor = 'red';
 
     }
-
+    NamePl2.textContent = Names[player2CharacterIndex].name
+    
         switch (characterIndex) {
           case 0:
             document.getElementById('right-image').src= 'images/char-select/bigDalida.png';

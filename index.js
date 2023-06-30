@@ -386,7 +386,7 @@ characters[3] = {
     },
     attackBox: {
       offset: {
-        x: -100,
+        x: 0,
         y: 0
       },
       width: 160,
@@ -719,25 +719,12 @@ function animate() {
 
 animate()
 
-function pauseGame() {
-  if (!isPaused) {
-    isPaused = true;
-    clearTimeout(timerId);
-  } else {
-    isPaused = false;
-    animate()
-    decreaseTimer();
-  }
-  console.log(isPaused)
-}
-
-function resetGame() {
-  // Reset game state variables
+function reset(){
   player.health = 100;
-  player.position.x = 200;
+  player.position.x = characters[player1]['player']['position'].x;
   // player.position.y = 150; 
   enemy.health = 100;
-  enemy.position.x = 700;
+  enemy.position.x = characters[player2]['enemy']['position'].x;
   timer = 60;
   
   // Reset DOM elements
@@ -749,6 +736,25 @@ function resetGame() {
   // Restart timer
   clearTimeout(timerId);
   decreaseTimer();
+}
+function pauseGame() {
+  if (!isPaused) {
+    isPaused = true;
+    clearTimeout(timerId);
+   
+    console.log("stop")
+  } else {
+    isPaused = false;
+    
+    animate ()
+    decreaseTimer();
+  }
+  console.log(isPaused)
+}
+
+
+function resetGame() {
+  reset()
 }
 
 // Event listener for restart button click
