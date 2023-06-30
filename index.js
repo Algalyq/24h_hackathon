@@ -66,6 +66,8 @@ characters[0] = {
       x: 100,
       y: 128,
     },
+    imageSrc: './img/dalida/Idle.png',
+    framesMax: 11,
     offset: {
       x: 100,
       y: 128
@@ -105,7 +107,8 @@ characters[0] = {
       },
       width: 160,
       height: 50
-    }
+    },
+    dead: false,
   },
   enemy: {
     position: {
@@ -116,6 +119,8 @@ characters[0] = {
       x: 0,
       y: 128
     },
+    imageSrc: './img/reverseDalida/Idle.png',
+    framesMax: 11,
     idle: {
       imageSrc: './img/reverseDalida/Idle.png',
       framesMax: 11
@@ -151,7 +156,8 @@ characters[0] = {
       },
       width: 160,
       height: 50
-    }
+    },
+    dead: false,
 }
 }
 
@@ -165,6 +171,8 @@ characters[1] = {
       x: 100,
       y: 98
     },
+    imageSrc: './img/kairow/Idle.png',
+    framesMax: 10,
     idle: {
       imageSrc: './img/kairow/Idle.png',
       framesMax: 10
@@ -200,7 +208,8 @@ characters[1] = {
       },
       width: 160,
       height: 50
-    }
+    },
+    dead: false,
   },
   enemy: {
     position: {
@@ -211,6 +220,8 @@ characters[1] = {
       x: 0,
       y: 98
     },
+    imageSrc: './img/reverseKairow/Idle.png',
+    framesMax: 10,
     idle: {
       imageSrc: './img/reverseKairow/Idle.png',
       framesMax: 10
@@ -246,7 +257,8 @@ characters[1] = {
       },
       width: 160,
       height: 50
-    }
+    },
+    dead: false
 }
 }
 
@@ -259,7 +271,9 @@ characters[2] = {
     offset: {
       x: 100,
       y: 160
-    },
+    },     
+    imageSrc: './img/sani/Idle.png',
+    framesMax: 4,
     idle: {
       imageSrc: './img/sani/Idle.png',
       framesMax: 4
@@ -295,7 +309,8 @@ characters[2] = {
       },
       width: 160,
       height: 50
-    }
+    },
+    dead: false,
   },
   enemy: {
     position: {
@@ -306,6 +321,8 @@ characters[2] = {
       x: 0,
       y: 160
     },
+    imageSrc: './img/kenji/Idle.png',
+    framesMax: 4,
     idle: {
       imageSrc: './img/kenji/Idle.png',
       framesMax: 4
@@ -341,7 +358,8 @@ characters[2] = {
       },
       width: 160,
       height: 50
-    }
+    },
+    dead: false,
 }
 }
 
@@ -356,6 +374,8 @@ characters[3] = {
       x: 100,
       y: 145
     },
+    imageSrc: './img/Xan/Idle.png',
+    framesMax: 8,
     idle: {
       imageSrc: './img/Xan/Idle.png',
       framesMax: 8
@@ -391,7 +411,8 @@ characters[3] = {
       },
       width: 160,
       height: 50
-    }
+    },
+    dead: false
   },
   enemy: {
     position: {
@@ -402,6 +423,8 @@ characters[3] = {
       x: 0,
       y: 145
     },
+    imageSrc: './img/reverseXan/Idle.png',
+    framesMax: 8,
     idle: {
       imageSrc: './img/reverseXan/Idle.png',
       framesMax: 8
@@ -438,6 +461,7 @@ characters[3] = {
       width: 160,
       height: 50
     }
+    ,dead: false
 }
 }
 
@@ -497,7 +521,8 @@ let player = new Fighter({
     },
     width: 160,
     height: 50
-  }
+  },
+  dead: characters[player1]['player']['dead']
 })
 
 function openModal() {
@@ -528,6 +553,7 @@ const enemy = new Fighter({
     y: 0
   },
   color: 'blue',
+  image: characters[player2]['enemy']['idle'].imageSrc,
   imageSrc: characters[player2]['enemy']['idle'].imageSrc,
   framesMax: characters[player2]['enemy']['idle'].framesMax,
   scale: 2.5,
@@ -572,7 +598,8 @@ const enemy = new Fighter({
     },
     width: 160,
     height: 50
-  }
+  },
+  dead: characters[player2]['enemy']['dead']
 })
 
 console.log(player)
@@ -720,15 +747,22 @@ function animate() {
 animate()
 
 function reset(){
+  
+  enemy.image =characters[player2]['enemy']['idle'].imageSrc;
+  enemy.image.src =characters[player2]['enemy']['idle'].imageSrc;
+  enemy.framesMax = characters[player2]['enemy']['idle'].framesMax;
+  enemy.health = 100;
+  enemy.position.x = characters[player2]['enemy']['position'].x;
+  
+  player.image =characters[player1]['player']['idle'].imageSrc;
+  player.image.src =characters[player1]['player']['idle'].imageSrc;
+  player.framesMax = characters[player1]['player']['idle'].framesMax;
   player.health = 100;
   player.position.x = characters[player1]['player']['position'].x;
-  // player.position.y = 150;
-  enemy.health = 100;
-
-  enemy.dead = false;
-  enemy.position.x = characters[player2]['enemy']['position'].x;
+  
   timer = 60;
-
+  player.refresh()
+  enemy.refresh()
   // Reset DOM elements
   document.getElementById('playerHealth').style.width = '100%';
   document.getElementById('enemyHealth').style.width = '100%';
@@ -750,14 +784,12 @@ function pauseGame() {
     isPaused = true;
     clearTimeout(timerId);
    
-    console.log("stop")
   } else {
     isPaused = false;
     
     animate ()
     decreaseTimer();
   }
-  console.log(isPaused)
 }
 
 
